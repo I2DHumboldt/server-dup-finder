@@ -1,0 +1,13 @@
+8	_tests_/testData/B/.DS_Store
+5860	_tests_/testData/B/book1.pdf
+336	_tests_/testData/B/ComparisonofNMRsimulators.docx
+300	_tests_/testData/B/October 2, 2016/DSCN0323.jpg
+144	_tests_/testData/B/October 2, 2016/DSCN0365.jpg
+204	_tests_/testData/B/October 2, 2016/DSCN0369.jpg
+648	_tests_/testData/B/October 2, 2016
+100	_tests_/testData/B/Reporte_Servidor_SDA.doc
+12	_tests_/testData/B/solvent1H.xlsx
+2556	_tests_/testData/B/You Don't Know JS_ This & Object Prototypes.pdf
+3488	_tests_/testData/B/You Don't Know JS_ Types & Grammar.pdf
+12	_tests_/testData/B/zlib.txt
+13020	_tests_/testData/B

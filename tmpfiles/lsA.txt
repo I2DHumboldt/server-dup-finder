@@ -1,0 +1,14 @@
+8	_tests_/testData/A/.DS_Store
+336	_tests_/testData/A/ComparisonofNMRsimulators.docx
+5652	_tests_/testData/A/javascript-books/2797.pdf
+1356	_tests_/testData/A/javascript-books/You Don't Know JS_ Async & Performance.pdf
+5860	_tests_/testData/A/javascript-books/You Don't Know JS_ ES6 & Beyond.pdf
+2556	_tests_/testData/A/javascript-books/You Don't Know JS_ This & Object Prototypes.pdf
+3488	_tests_/testData/A/javascript-books/You Don't Know JS_ Types & Grammar.pdf
+12	_tests_/testData/A/javascript-books/zlib.txt
+18924	_tests_/testData/A/javascript-books
+100	_tests_/testData/A/Reporte_Servidor_SDA.doc
+48	_tests_/testData/A/solven13C.xlsx
+8	_tests_/testData/A/solvent1H.json
+12	_tests_/testData/A/solvent1H.xlsx
+19436	_tests_/testData/A
