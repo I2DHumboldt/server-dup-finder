@@ -38,7 +38,6 @@ for lineA in fa:
 			info = info[:-1]
 
 		lineA += "\t"+info
-	print lineA
 	fo.write(lineA+"\n");
 
 fa.close()

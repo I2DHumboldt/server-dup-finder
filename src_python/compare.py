@@ -49,10 +49,9 @@ candidates = []
 lngB = len(listB)
 indexB = 0
 indexC = 0
-print listB
+
 for lineA in listA :
 	if indexB < lngB :
-		print lineA
 		b = listB[indexB]
 		while lineA[0] < b[0] and indexB < lngB - 1 :
 			indexB += 1
@@ -73,7 +72,6 @@ print "   Done"
 print "   Step 2.3/2: Matching the content of the probable candidates"
 sum = 0
 count = 0
-print candidates
 for files in candidates:
 	if filecmp.cmp(files[1],files[2]): 
 		fo.write((str(files[0])+"\t"+files[1]+"\t"+files[2]+"\n"))
