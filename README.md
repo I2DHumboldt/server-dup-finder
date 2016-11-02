@@ -4,7 +4,13 @@ Una herramienta para comparar y listar de forma recursiva y eficiente todos los 
 
 ## Instalación
 
-Para la instación de este script es necesario tener python 2.7 o superior y el manejador de paquetes de python pip
+Para la instación de este script es necesario tener python 2.7 o superior y el manejador de paquetes de python pip y git
+``
+#Ubuntu
+sudo apt-get install git
+#Centos y fedora
+sudo yum install git
+``
 
 ```
 git clone https://github.com/I2DHumboldt/server-duplicados.git
