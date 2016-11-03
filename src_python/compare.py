@@ -10,7 +10,7 @@ from stat import *
 
 fa = open(sys.argv[1], 'r')
 listA = []
-minSize = 16 #4 Kilobytes
+minSize = 16 #16 Kilobytes
 if len(sys.argv) > 6 :
 	minSize = int(sys.argv[6])
 
@@ -56,11 +56,11 @@ nextReport = deltaIndex;
 sum = 0
 count = 0
 fo = open(sys.argv[3], 'w')
-countComparison = 0
+
 for lineA in listA :
 	indexA += 1
 	if indexA  > nextReport :
-		print indexA, "/", lngA, "current files sizes:", lineA[0]," kb (repeated files: "+str(count)+" space in disk; "+str(sum)+" kb)" 
+		print indexA, "/", lngA, "current files sizes:", lineA[0]," kb (repeated files: "+str(count)+" space in disk: "+str(sum)+" kb)" 
 		nextReport += deltaIndex
 	if indexB < lngB :
 		b = listB[indexB]
@@ -70,7 +70,6 @@ for lineA in listA :
 				b = listB[indexB]
 		indexC = indexB
 		while lineA[0] == b[0]  and indexC < lngB :
-			countComparison += 1
 			if filecmp.cmp(folderA+lineA[1], folderB+b[1]) : 
 				fo.write((str(lineA[0])+"\t"+lineA[1]+"\t"+b[1]+"\n"))
 				sum += lineA[0]
@@ -81,7 +80,6 @@ for lineA in listA :
 	else:
 		break
 
-print "countComparison ", countComparison
 print ("resume: "+str(count)+" files "+str(sum)+" Kb")
 print "   Done"
 fo.close()
