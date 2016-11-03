@@ -10,47 +10,58 @@ from stat import *
 
 fa = open(sys.argv[1], 'r')
 listA = []
-minSize = 4 #4 Kilobytes
+minSize = 16 #4 Kilobytes
+if len(sys.argv) > 6 :
+	minSize = int(sys.argv[6])
 
-for lineA in fa:
+print "Considering files of min: ", minSize, " kb"
+folderA = sys.argv[4];
+for lineA in fa :
 	tokens = lineA.split("\t")
 	tokens[0] = int(tokens[0])
 	if tokens[0] > minSize :
-		if tokens[1].find(".DS_") < 0 :
-			tokens[1] = tokens[1].replace("\n","")
-			mode = os.stat(tokens[1])[ST_MODE]
-        		if not S_ISDIR(mode):
-				listA.append(tokens)
-fa.close()
+		tokens[1] = tokens[1].replace(folderA, "").replace("\n","")
+		listA.append(tokens)
+	else :
+		break
 
-listA = sorted(listA,key=lambda a: a[0], reverse=True)
+print "Folder A: ",folderA, len(listA)
+fa.close()
 
 fb = open(sys.argv[2], 'r')
 listB = []
-
+folderB = sys.argv[5];
 for lineB in fb:
 	tokens = lineB.split("\t")
 	tokens[0] = int(tokens[0])
 	if tokens[0] > minSize :
-		if tokens[1].find(".DS_") < 0 :
-			tokens[1] = tokens[1].replace("\n","")
-			mode = os.stat(tokens[1])[ST_MODE]
-        		if not S_ISDIR(mode) :
-				listB.append(tokens)
+		tokens[1] = tokens[1].replace(folderB, "").replace("\n","")
+		listB.append(tokens)
+	else :
+		break
+
+print "Folder B: ",folderB, len(listB)
 fb.close()
 
-listB = sorted(listB,key=lambda b: b[0], reverse=True)
-
-fo = open(sys.argv[3], 'w')
-
-#Compare all the files and folders of A agains B
+#Compare all the files of A against B
 print "   Step 2.1/2: Matching file sizes"
-candidates = []
+lngA = len(listA)
 lngB = len(listB)
+indexA = 0
 indexB = 0
 indexC = 0
-
+nSteps = 100
+deltaIndex = lngA / nSteps;
+nextReport = deltaIndex;
+sum = 0
+count = 0
+fo = open(sys.argv[3], 'w')
+countComparison = 0
 for lineA in listA :
+	indexA += 1
+	if indexA  > nextReport :
+		print indexA, "/", lngA, "current files sizes:", lineA[0]," kb (repeated files: "+str(count)+" space in disk; "+str(sum)+" kb)" 
+		nextReport += deltaIndex
 	if indexB < lngB :
 		b = listB[indexB]
 		while lineA[0] < b[0] and indexB < lngB - 1 :
@@ -59,26 +70,21 @@ for lineA in listA :
 				b = listB[indexB]
 		indexC = indexB
 		while lineA[0] == b[0]  and indexC < lngB :
-			candidates.append((lineA[0], lineA[1], b[1]))
+			countComparison += 1
+			if filecmp.cmp(folderA+lineA[1], folderB+b[1]) : 
+				fo.write((str(lineA[0])+"\t"+lineA[1]+"\t"+b[1]+"\n"))
+				sum += lineA[0]
+				count += 1
 			indexC += 1
 			if indexC < lngB :
 				b = listB[indexC]
 	else:
 		break
 
-print "   Done"
-
-#Now we can save this and use a file comparator to know if they are really the same
-print "   Step 2.3/2: Matching the content of the probable candidates"
-sum = 0
-count = 0
-for files in candidates:
-	if filecmp.cmp(files[1],files[2]): 
-		fo.write((str(files[0])+"\t"+files[1]+"\t"+files[2]+"\n"))
-		sum += files[0]
-		count += 1
+print "countComparison ", countComparison
 print ("resume: "+str(count)+" files "+str(sum)+" Kb")
+print "   Done"
 fo.close()
 
-print "   Done"
+
 
