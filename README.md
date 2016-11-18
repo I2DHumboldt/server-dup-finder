@@ -177,5 +177,9 @@ Done
 ## Agregar descripción y palabras clave para archivos de texto
 
 ```
-./informacion.sh  reporte.csv reporte_info.csv
+./informacion.sh  reporte.csv reporte_info.csv folderA
 ```
+
+* reporte.csv: Nombre del archivo de salida del script *./duplicados.sh*
+* reporte_info.csv: Archivo de salida
+* folderA: Primer directorio de entrada del script *./duplicados.sh* (Primer parámetro)

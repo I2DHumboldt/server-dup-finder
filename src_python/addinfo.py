@@ -7,6 +7,7 @@ import json
 
 fa = open(sys.argv[1], 'r')
 fo = open(sys.argv[2], 'w')
+path = sys.argv[3]
 
 listA = []
 
@@ -30,7 +31,7 @@ for lineA in fa:
 		lineA += "\tother"
 
 	if fileext == ".docx" or fileext == ".txt" :
-		content = readDoc.getText(tokens[1]).lower();
+		content = readDoc.getText(os.path.join(path,tokens[1])).lower();
 		for key in keywords :
 			if content.find(key)>=0 :
 				info += key+","
