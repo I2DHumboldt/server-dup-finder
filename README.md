@@ -57,7 +57,7 @@ Adicionalment el programa imprime en la consola un log del proceso. Este log con
 repetidos y el total de espacio utilizado por estos. Ej: 
 
 ```
-./duplicados.sh ~/Documents ~/Dropbox reporte.csv 16
+./duplicados.sh ~/Documents ~/Dropbox reporte.csv 230
 /Users/acastillo/git/server-duplicados
 Step 1/2: listing files...
      working on A
@@ -107,69 +107,8 @@ Folder B:  /Users/acastillo/Dropbox 2137
 4552 / 12311 current files sizes: 268  kb (repeated files: 366 space in disk; 462096 kb)
 4675 / 12311 current files sizes: 252  kb (repeated files: 388 space in disk; 467968 kb)
 4798 / 12311 current files sizes: 228  kb (repeated files: 395 space in disk; 469652 kb)
-4921 / 12311 current files sizes: 212  kb (repeated files: 411 space in disk; 473228 kb)
-5044 / 12311 current files sizes: 196  kb (repeated files: 416 space in disk; 474220 kb)
-5167 / 12311 current files sizes: 184  kb (repeated files: 423 space in disk; 475548 kb)
-5290 / 12311 current files sizes: 168  kb (repeated files: 425 space in disk; 475908 kb)
-5413 / 12311 current files sizes: 156  kb (repeated files: 438 space in disk; 478044 kb)
-5536 / 12311 current files sizes: 144  kb (repeated files: 449 space in disk; 479692 kb)
-5659 / 12311 current files sizes: 132  kb (repeated files: 462 space in disk; 481468 kb)
-5782 / 12311 current files sizes: 124  kb (repeated files: 473 space in disk; 482832 kb)
-5905 / 12311 current files sizes: 116  kb (repeated files: 479 space in disk; 483552 kb)
-6028 / 12311 current files sizes: 104  kb (repeated files: 487 space in disk; 484428 kb)
-6151 / 12311 current files sizes: 96  kb (repeated files: 497 space in disk; 485436 kb)
-6274 / 12311 current files sizes: 88  kb (repeated files: 513 space in disk; 486896 kb)
-6397 / 12311 current files sizes: 80  kb (repeated files: 523 space in disk; 487752 kb)
-6520 / 12311 current files sizes: 72  kb (repeated files: 540 space in disk; 489072 kb)
-6643 / 12311 current files sizes: 72  kb (repeated files: 541 space in disk; 489144 kb)
-6766 / 12311 current files sizes: 68  kb (repeated files: 545 space in disk; 489424 kb)
-6889 / 12311 current files sizes: 64  kb (repeated files: 554 space in disk; 490036 kb)
-7012 / 12311 current files sizes: 60  kb (repeated files: 565 space in disk; 490728 kb)
-7135 / 12311 current files sizes: 56  kb (repeated files: 577 space in disk; 491416 kb)
-7258 / 12311 current files sizes: 52  kb (repeated files: 608 space in disk; 493144 kb)
-7381 / 12311 current files sizes: 48  kb (repeated files: 616 space in disk; 493552 kb)
-7504 / 12311 current files sizes: 48  kb (repeated files: 622 space in disk; 493840 kb)
-7627 / 12311 current files sizes: 44  kb (repeated files: 636 space in disk; 494464 kb)
-7750 / 12311 current files sizes: 40  kb (repeated files: 642 space in disk; 494728 kb)
-7873 / 12311 current files sizes: 40  kb (repeated files: 642 space in disk; 494728 kb)
-7996 / 12311 current files sizes: 40  kb (repeated files: 676 space in disk; 496088 kb)
-8119 / 12311 current files sizes: 36  kb (repeated files: 678 space in disk; 496160 kb)
-8242 / 12311 current files sizes: 36  kb (repeated files: 686 space in disk; 496448 kb)
-8365 / 12311 current files sizes: 36  kb (repeated files: 696 space in disk; 496808 kb)
-8488 / 12311 current files sizes: 36  kb (repeated files: 696 space in disk; 496808 kb)
-8611 / 12311 current files sizes: 32  kb (repeated files: 699 space in disk; 496904 kb)
-8734 / 12311 current files sizes: 32  kb (repeated files: 699 space in disk; 496904 kb)
-8857 / 12311 current files sizes: 32  kb (repeated files: 705 space in disk; 497096 kb)
-8980 / 12311 current files sizes: 32  kb (repeated files: 707 space in disk; 497160 kb)
-9103 / 12311 current files sizes: 32  kb (repeated files: 707 space in disk; 497160 kb)
-9226 / 12311 current files sizes: 28  kb (repeated files: 709 space in disk; 497216 kb)
-9349 / 12311 current files sizes: 28  kb (repeated files: 709 space in disk; 497216 kb)
-9472 / 12311 current files sizes: 28  kb (repeated files: 710 space in disk; 497244 kb)
-9595 / 12311 current files sizes: 28  kb (repeated files: 712 space in disk; 497300 kb)
-9718 / 12311 current files sizes: 28  kb (repeated files: 724 space in disk; 497636 kb)
-9841 / 12311 current files sizes: 28  kb (repeated files: 724 space in disk; 497636 kb)
-9964 / 12311 current files sizes: 28  kb (repeated files: 724 space in disk; 497636 kb)
-10087 / 12311 current files sizes: 28  kb (repeated files: 724 space in disk; 497636 kb)
-10210 / 12311 current files sizes: 24  kb (repeated files: 724 space in disk; 497636 kb)
-10333 / 12311 current files sizes: 24  kb (repeated files: 724 space in disk; 497636 kb)
-10456 / 12311 current files sizes: 24  kb (repeated files: 724 space in disk; 497636 kb)
-10579 / 12311 current files sizes: 24  kb (repeated files: 726 space in disk; 497684 kb)
-10702 / 12311 current files sizes: 24  kb (repeated files: 729 space in disk; 497756 kb)
-10825 / 12311 current files sizes: 24  kb (repeated files: 736 space in disk; 497924 kb)
-10948 / 12311 current files sizes: 24  kb (repeated files: 736 space in disk; 497924 kb)
-11071 / 12311 current files sizes: 24  kb (repeated files: 736 space in disk; 497924 kb)
-11194 / 12311 current files sizes: 20  kb (repeated files: 738 space in disk; 497964 kb)
-11317 / 12311 current files sizes: 20  kb (repeated files: 738 space in disk; 497964 kb)
-11440 / 12311 current files sizes: 20  kb (repeated files: 738 space in disk; 497964 kb)
-11563 / 12311 current files sizes: 20  kb (repeated files: 738 space in disk; 497964 kb)
-11686 / 12311 current files sizes: 20  kb (repeated files: 739 space in disk; 497984 kb)
-11809 / 12311 current files sizes: 20  kb (repeated files: 739 space in disk; 497984 kb)
-11932 / 12311 current files sizes: 20  kb (repeated files: 750 space in disk; 498204 kb)
-12055 / 12311 current files sizes: 20  kb (repeated files: 766 space in disk; 498524 kb)
-12178 / 12311 current files sizes: 20  kb (repeated files: 766 space in disk; 498524 kb)
-12301 / 12311 current files sizes: 20  kb (repeated files: 766 space in disk; 498524 kb)
 countComparison  660176
-resume: 766 files 498524 Kb
+resume: 395 files 469652 Kb
    Done
 Done
 ```
