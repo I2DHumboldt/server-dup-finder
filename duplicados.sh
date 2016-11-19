@@ -10,7 +10,6 @@ minSize=$4
 # I need to do all those stepts to get the absolute paths, because readlink -f is not available in OSX
 cd $A
 fullA="$(pwd)"
-echo $current
 cd $current
 cd $B
 fullB="$(pwd)"
