@@ -15,8 +15,11 @@ Para la instación de este script es necesario tener python 2.7 o superior y el 
  sudo pip install --upgrade virtualenv
 
 #Centos y fedora
-sudo yum install git
-...
+ sudo yum install git
+ sudo yum install python-setuptools python-dev build-essential
+ sudo easy_install pip
+ sudo pip install --upgrade virtualenv
+ 
 ```
 
 ```
@@ -31,26 +34,25 @@ sudo pip install python-docx
 ./duplicados.sh folderA folderB output minSize
 ```
 
-# Parámetros
+## Parámetros
 
  folderA: El primer folder a analizar
  folderB: El segundo folder a analizar
  output: El archivo de salida con la lista de archivos repetidos
  minSize: El tamaño mínimo en kilobytes de los archivos a analizar (16 kb por defecto) 
 
-
 ## Salida
 
 Un archivo separado por comas con todos los archivos repetidos entre el forlderA y el folderB
  
 ```
-5860	_tests_/testData/A/javascript-books/You Beyond.pdf	_tests_/testData/B/book1.pdf	document
-3488	_tests_/testData/A/javascript-books/Grammar.pdf	_tests_/testData/B/Grammar.pdf	document
-2556	_tests_/testData/A/javascript-books/Prototypes.pdf	_tests_/testData/B/Prototypes.pdf	document
-336	_tests_/testData/A/ComparisonofNMRsimulators.docx	_tests_/testData/B/ComparisonofNMRsimulators.docx	document	reporte final
-100	_tests_/testData/A/Reporte_Servidor_SDA.doc	_tests_/testData/B/Reporte_Servidor_SDA.doc	contrato, reporte final
-12	_tests_/testData/A/javascript-books/zlib.txt	_tests_/testData/B/zlib.txt	plain	compression
-12	_tests_/testData/A/solvent1H.xlsx	_tests_/testData/B/solvent1H.xlsx	table
+5860	_tests_/testData/A/javascript-books/You Beyond.pdf	_tests_/testData/B/book1.pdf
+3488	_tests_/testData/A/javascript-books/Grammar.pdf	_tests_/testData/B/Grammar.pdf
+2556	_tests_/testData/A/javascript-books/Prototypes.pdf	_tests_/testData/B/Prototypes.pdf
+336	_tests_/testData/A/ComparisonofNMRsimulators.docx	_tests_/testData/B/ComparisonofNMRsimulators.docx
+100	_tests_/testData/A/Reporte_Servidor_SDA.doc	_tests_/testData/B/Reporte_Servidor_SDA.doc	
+12	_tests_/testData/A/javascript-books/zlib.txt	_tests_/testData/B/zlib.txt
+12	_tests_/testData/A/solvent1H.xlsx	_tests_/testData/B/solvent1H.xlsx
 ```
 
 Adicionalment el programa imprime en la consola un log del proceso. Este log contiene información importante sobre el número de archivos
@@ -91,21 +93,8 @@ Folder B:  /Users/acastillo/Dropbox 2137
 2584 / 12311 current files sizes: 396  kb (repeated files: 308 space in disk; 443928 kb)
 2707 / 12311 current files sizes: 392  kb (repeated files: 310 space in disk; 444712 kb)
 2830 / 12311 current files sizes: 388  kb (repeated files: 312 space in disk; 445488 kb)
-2953 / 12311 current files sizes: 384  kb (repeated files: 312 space in disk; 445488 kb)
-3076 / 12311 current files sizes: 380  kb (repeated files: 314 space in disk; 446248 kb)
-3199 / 12311 current files sizes: 380  kb (repeated files: 314 space in disk; 446248 kb)
-3322 / 12311 current files sizes: 376  kb (repeated files: 316 space in disk; 447008 kb)
-3445 / 12311 current files sizes: 364  kb (repeated files: 316 space in disk; 447008 kb)
-3568 / 12311 current files sizes: 356  kb (repeated files: 319 space in disk; 448088 kb)
-3691 / 12311 current files sizes: 352  kb (repeated files: 319 space in disk; 448088 kb)
-3814 / 12311 current files sizes: 348  kb (repeated files: 319 space in disk; 448088 kb)
-3937 / 12311 current files sizes: 340  kb (repeated files: 319 space in disk; 448088 kb)
-4060 / 12311 current files sizes: 332  kb (repeated files: 319 space in disk; 448088 kb)
-4183 / 12311 current files sizes: 324  kb (repeated files: 319 space in disk; 448088 kb)
-4306 / 12311 current files sizes: 316  kb (repeated files: 325 space in disk; 449992 kb)
-4429 / 12311 current files sizes: 296  kb (repeated files: 354 space in disk; 458832 kb)
-4552 / 12311 current files sizes: 268  kb (repeated files: 366 space in disk; 462096 kb)
-4675 / 12311 current files sizes: 252  kb (repeated files: 388 space in disk; 467968 kb)
+...
+...
 4798 / 12311 current files sizes: 228  kb (repeated files: 395 space in disk; 469652 kb)
 countComparison  660176
 resume: 395 files 469652 Kb
@@ -113,12 +102,46 @@ resume: 395 files 469652 Kb
 Done
 ```
 
-## Agregar descripción y palabras clave para archivos de texto
+# Agregar descripción y palabras clave para archivos de texto
+
+Esta herramienta permite agregar información adicional al archivo de salida de duplicados. El programa agrega 1 columna extra con información sobre el tipo de archivo (document, table, image, plain, other) basado en la extensión del archivo. Esto permite filtrar las entradas del archivo por tipo de documentos y facilita el análisis.
+
+```
+//Tabla de equivalencias con base en la extensión del archivo
+
+{".png":"image", ".jpg":"image", ".tiff":"image", ".bmp":"image", ".eps":"image", ".svg":"image", ".gif":"image", ".doc":"document", ".docx":"document", ".xls":"table", ".xlsx":"table", ".csv":"table", ".pdf":"document", ".rtf":"document", ".txt": "plain"}
+```
+
+Para los documentos .docx se agrega una columna adicional con la concatenación de las palabreas clave de la siguiente lista que contiene el documento. Esto permite dar una idea inicial sobre el contenido del documento.
+
+```
+//Lista de palabras clave que se deben buscar en el cuerpo del documento
+
+keywords = ["informe final ", "documento final", "consultoria",  "presupuesto", "contrato", "convenio", "cronograma", "propuesta", "informe"]
+```
+## Ejecución
 
 ```
 ./informacion.sh  reporte.csv reporte_info.csv folderA
 ```
 
+## Parámetros
+
 * reporte.csv: Nombre del archivo de salida del script *./duplicados.sh*
 * reporte_info.csv: Archivo de salida
 * folderA: Primer directorio de entrada del script *./duplicados.sh* (Primer parámetro)
+
+## Salida
+
+Un archivo de texto con la siguiente estructura:
+
+```
+5860	_tests_/testData/A/javascript-books/You Beyond.pdf	_tests_/testData/B/book1.pdf	document
+3488	_tests_/testData/A/javascript-books/Grammar.pdf	_tests_/testData/B/Grammar.pdf	document
+2556	_tests_/testData/A/javascript-books/Prototypes.pdf	_tests_/testData/B/Prototypes.pdf	document
+336	_tests_/testData/A/ComparisonofNMRsimulators.docx	_tests_/testData/B/ComparisonofNMRsimulators.docx	document	reporte final
+100	_tests_/testData/A/Reporte_Servidor_SDA.doc	_tests_/testData/B/Reporte_Servidor_SDA.doc	contrato, reporte final
+12	_tests_/testData/A/javascript-books/zlib.txt	_tests_/testData/B/zlib.txt	plain	compression
+12	_tests_/testData/A/solvent1H.xlsx	_tests_/testData/B/solvent1H.xlsx	table
+```
+
