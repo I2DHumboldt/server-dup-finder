@@ -1,5 +1,7 @@
 # server-duplicados
-Tool that compares and list, recursively, all the files in the given folders that are repeated.
+
+Tool that compares and list, recursively, all the files in the given folders that are repeated
+
 Una herramienta para comparar y listar de forma recursiva y eficiente todos los archivos repetidos entre dos carpetas dadas
 
 ## Instalación
