@@ -17,9 +17,9 @@ cd $current
 
 echo "Step 1/2: listing files..."
 echo "     working on A"
-find $A -type f -exec du -ak {} + | sort -n -r > tmpfiles/lsA.txt
+find $fullA -type f -exec du -ak {} + | sort -n -r > tmpfiles/lsA.txt
 echo "     working on B"
-find $B -type f -exec du -ak {} + | sort -n -r > tmpfiles/lsB.txt
+find $fullB -type f -exec du -ak {} + | sort -n -r > tmpfiles/lsB.txt
 echo "Done"
 
 echo "Step 2/2: Finding matches"
