@@ -71,7 +71,7 @@ for lineA in listA :
 		indexC = indexB
 		while lineA[0] == b[0]  and indexC < lngB :
 			if filecmp.cmp(folderA+lineA[1], folderB+b[1]) : 
-				fo.write((str(lineA[0])+"\t"+lineA[1]+"\t"+b[1]+"\n"))
+				fo.write((str(lineA[0])+"\t"+ folderA+lineA[1]+"\t"+ folderB+b[1]+"\n"))
 				sum += lineA[0]
 				count += 1
 			indexC += 1

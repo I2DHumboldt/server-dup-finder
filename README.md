@@ -131,7 +131,6 @@ keywords = ["informe final ", "documento final", "consultoria",  "presupuesto", 
 
 * reporte.csv: Nombre del archivo de salida del script *./duplicados.sh*
 * reporte_info.csv: Archivo de salida
-* folderA: Primer directorio de entrada del script *./duplicados.sh* (Primer parámetro)
 
 ## Salida
 

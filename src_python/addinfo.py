@@ -7,8 +7,6 @@ import json
 
 fa = open(sys.argv[1], 'r')
 fo = open(sys.argv[2], 'w')
-fullPath = sys.argv[3]
-print "XXX ", fullPath
 listA = []
 
 keywords = ["informe final ", "documento final", "consultoria",  "presupuesto", "contrato", "convenio", "cronograma", "propuesta", "informe"]
@@ -31,8 +29,7 @@ for lineA in fa:
 		lineA += "\tother"
 
 	if fileext == ".docx" or fileext == ".txt" :
-        	print os.path.join(fullPath, tokens[1])
-		content = readDoc.getText(os.path.join(fullPath, "."+tokens[1])).lower()
+		content = readDoc.getText(tokens[1]).lower()
 		for key in keywords :
 			if content.find(key)>=0 :
 				info += key+","
