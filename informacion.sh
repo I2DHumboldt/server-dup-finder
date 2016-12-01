@@ -8,7 +8,7 @@ current="$(pwd)"
 cd $path
 fullPath="$(pwd)"
 cd $current
-
+echo $fullPath
 echo "Step 1/1: Adding info column for docx files"
 python src_python/addinfo.py $input $output $fullPath
 
